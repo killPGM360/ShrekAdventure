@@ -59,7 +59,7 @@ and open the template in the editor.
     overflow: visible;
     left: 0px;
     top: 0px; 
-    -moz-box-sizing: border-box; 
+    
     width:100%;
     height:100%;
     font-family:tahoma;
@@ -81,7 +81,7 @@ and open the template in the editor.
     left:50%;
     bottom:40%;
 }
-#trou1
+#trouu1
 {
     position: absolute;
     left:60%;

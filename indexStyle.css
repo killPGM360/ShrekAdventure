@@ -9,9 +9,9 @@ and open the template in the editor.
 */
 
 @charset "UTF-8";
-@import url("//fonts.googleapis.com/css?family=Pacifico&text=Pure");
-@import url("//fonts.googleapis.com/css?family=Roboto:700&text=css");
-@import url("//fonts.googleapis.com/css?family=Kaushan+Script&text=!");
+@import url("css1.css");
+@import url("css2.css");
+@import url("css3.css");
 body {
   min-height: 450px;
   height: 100vh;
