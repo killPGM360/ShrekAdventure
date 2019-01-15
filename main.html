@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Jeu</title>
+        <link href="feuilleStyle.css" rel="stylesheet" type="text/css">
+        
+        
+    </head>
+    <body id="idbody">
+    <script language="JavaScript" type="text/javascript">
+        
+        var max_y=screen.height*0.45;
+        var max_x=screen.width;
+        var m_y=max_y;
+        var m_x=1;
+        var m_x_monstre1=screen.width*0.5;
+        var m_lock=0;
+        var m_nbSaut=0;
+        var m_direction=0;
+        var gravite;
+        var m_niveau=1;
+        setInterval(methodeGravite, 20);
+        setInterval(methodeLevel,30);
+        
+        function methodeLevel()
+        {
+             max_y=screen.height*0.45;  //fix zoom
+             max_x=screen.width;
+             m_x_monstre1=m_x_monstre1-2;
+             if(m_x>=max_x)
+             {
+                methodeNiveauSup();
+             }
+             var d_personne = document.getElementById('personne1');
+                    d_personne.style.position = "absolute";
+                        d_personne.style.left = m_x+'px';
+                        d_personne.style.top = m_y+'px';
+                        
+             var d_monstre1 = document.getElementById('monstre1');
+                        d_monstre1.style.position = "absolute";
+                        d_monstre1.style.left = m_x_monstre1+'px';
+                        
+             if(hitBox(d_personne, d_monstre1))
+             {
+                 methodeInitialize();
+             }
+                        
+             
+             
+        }
+        function methodeNiveauSup()
+        {
+            methodeInitialize();
+            m_niveau++;
+            
+            switch(m_niveau)
+            {
+                case 2:
+                    var d_monstre1 = document.getElementById('monstre1');
+                        d_monstre1.src="shrek/Zombie.png";
+                        d_monstre1.style.height='15%';
+                    break;
+                case 3: 
+                    var d_monstre1 = document.getElementById('monstre1');
+                        d_monstre1.src="shrek/shrek_left.png";
+                        d_monstre1.style.height='17%';
+                        d_monstre1.style.width='2%';
+                    break;
+                case 4:
+                    var d_fond= document.getElementById('test');
+                        d_fond.style.backgroundImage ="url('shrek/Snow_Background.png')";
+                        
+                    break;
+                case 5:
+                    m_x_monstre1=screen.width*2;
+                    document.getElementById("trou1").style.display = "block";
+                    break;
+             
+            }
+        }
+        function hitBox( source, target ) {
+        /* Box model detection, return true on collision */
+	return !(
+		( ( source.offsetTop + source.offsetHeight ) < ( target.offsetTop ) ) ||
+		( source.offsetTop > ( target.offsetTop + target.offsetHeight ) ) ||
+		( ( source.offsetLeft + source.offsetWidth ) < target.offsetLeft ) ||
+		( source.offsetLeft > ( target.offsetLeft + target.offsetWidth ) )
+	);
+}
+        
+        function  methodeInitialize()
+        {
+            m_y=max_y;
+            if(m_niveau===5)
+            {
+                  m_x_monstre1=screen.width*2;
+            }
+            else
+            {
+                m_x_monstre1=screen.width*0.5;
+            }
+            m_x=1;
+            var d = document.getElementById('personne1');
+                    d.style.position = "absolute";
+                        
+                    d.src="shrek/shrek_mini_happy.png";
+                    d.style.left = m_x+'px';
+                    d.style.top = m_y+'px';
+                    
+        }
+        
+        function methodeGravite()
+        {
+          
+            if(m_y<max_y)
+            {
+               
+                if(m_lock===1)
+                {
+                    gravite=-5;
+                    m_nbSaut=m_nbSaut+1;
+                    if(m_nbSaut>=30)
+                    {
+                        if(m_y>=max_y)  //le + 2 est a cause de l'imprécision
+                        {
+                             m_nbSaut=0;
+                             m_lock=0;
+                        }
+                        else{
+                            gravite=5;
+                            
+                        }
+                       
+                    }
+                }
+                else{
+                    gravite=5;
+                    
+                }
+                m_x=m_x+m_direction;
+                m_y=m_y+gravite;
+                
+                
+                
+            }
+            else{
+                m_nbSaut=0;
+                m_lock=0;
+            }
+            
+           
+                        
+            
+        }
+        
+        
+
+            function zxcKeyPress(zxc){
+                var touche=String.fromCharCode(zxc);
+
+
+
+
+                if(touche==="W")
+                {
+                    if(m_lock===0)
+                    {
+                        m_lock=1;
+                        m_y=m_y-60;
+                        
+                    }
+                    
+                    var d = document.getElementById('personne1');
+                    d.style.position = "absolute";
+                    d.style.left = m_x+'px';
+                    d.style.top = m_y+'px';
+                    
+                }
+                if(touche==="D")
+                {
+                    m_direction=2;
+                    m_x=m_x+10;
+                    var d = document.getElementById('personne1');
+                    
+                    
+                    d.src="shrek/shrek_mini_rightv2.png";
+                    d.style.position = "absolute";
+                    d.style.left = m_x+'px';
+                    d.style.top = m_y+'px';
+                }
+                
+                if(touche==="A")
+                {
+                    m_direction=-2;
+                    m_x=m_x-10;
+                    var d = document.getElementById('personne1');
+                    
+                    d.src="shrek/shrek_mini_left.png";
+                    d.style.position = "absolute";
+                    d.style.left = m_x+'px';
+                    d.style.top = m_y+'px';
+                }
+            }
+
+            function zxcSetDiv(zxc){
+             zxcObj=zxc;
+             document.onkeydown=function(evt){ zxcKeyPress(evt?evt.keyCode:event.keyCode); };
+             
+             zxc.onmouseout=function(){document.onkeydown=null; };
+            }
+
+
+
+</script>
+
+<div id="test" onmouseover=zxcSetDiv(this); ><span id="divtxt" ></span>
+    
+    <div id="d_personne1">
+               <img id="personne1" src="shrek/shrek_mini_happy.png">
+    </div>
+    
+    <div id="plancher">
+    </div>
+    
+    <div id ="level">
+        <img id="monstre1" src="shrek/loup.png"> 
+        <!-- <img id="trou1" src="shrek/Lave.png">  -->
+        
+    </div>
+    
+</div>
+
+
+ 
+</body>
+</html>

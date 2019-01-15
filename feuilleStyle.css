@@ -1,0 +1,85 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2018-09-12, 08:17:02
+    Author     : killPGM360
+*/
+
+#personne1
+{
+    
+    height: 8%;
+    width: 3%;
+    
+}
+
+
+
+
+
+
+
+#test
+{
+    border: 1px solid black;
+    padding: 8px;
+    position: absolute;
+    overflow: visible;
+    left: 0px;
+    top: 0px; 
+    -moz-box-sizing: border-box; 
+    width:100%;
+    height:100%;
+    font-family:tahoma;
+    font-size:11px;
+    background-image: url("shrek/fond1.jpg");
+    
+}
+#plancher
+{
+    padding: 8px;
+    position: absolute;
+    overflow: visible;
+    background-repeat: repeat;
+    background-size: 50px 50px;
+    left: 0px;
+    top: 60%; 
+    width:100%;
+    height:40%;
+    background-image: url("shrek/brick.png");
+}
+#accueil
+{
+    border: 1px solid black;
+    padding: 8px;
+    position: absolute;
+    overflow: visible;
+    left: 0px;
+    top: 0px; 
+    -moz-box-sizing: border-box; 
+    width:100%;
+    height:100%;
+    font-family:tahoma;
+    font-size:11px;
+    
+}
+#monstre1
+{
+    position: absolute;
+    overflow: visible;
+    left:50%;
+    bottom:40%;
+    width: 7%;
+    height:6%;
+    
+}
+#messaaeAccueil
+{
+    left:50%;
+    bottom:40%;
+}
+
+
