@@ -25,6 +25,7 @@ and open the template in the editor.
         var m_direction=0;
         var gravite;
         var m_niveau=1;
+        var m_vitesseMonstre=2
         setInterval(methodeGravite, 20);
         setInterval(methodeLevel,30);
         
@@ -32,7 +33,7 @@ and open the template in the editor.
         {
              max_y=screen.height*0.45;  //fix zoom
              max_x=screen.width;
-             m_x_monstre1=m_x_monstre1-2;
+             m_x_monstre1=m_x_monstre1-m_vitesseMonstre;
              if(m_x>=max_x)
              {
                 methodeNiveauSup();
@@ -75,6 +76,12 @@ and open the template in the editor.
                 case 4:
                     var d_fond= document.getElementById('test');
                         d_fond.style.backgroundImage ="url('shrek/Snow_Background.png')";
+                    m_vitesseMonstre=13;
+                    var d_monstre1 = document.getElementById('monstre1');
+                        d_monstre1.src="shrek/boule_neige.png";
+                        d_monstre1.style.height='13%';
+                        d_monstre1.style.width='13%';
+
                         
                     break;
                 case 5:
@@ -118,7 +125,7 @@ and open the template in the editor.
         function methodeGravite()
         {
           
-            if(m_y<max_y)
+            if(m_y<max_y+10)
             {
                
                 if(m_lock===1)
