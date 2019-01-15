@@ -51,6 +51,11 @@ and open the template in the editor.
              {
                  methodeInitialize();
              }
+             if(hitBox(d_personne, d_trou))
+             {
+                 methodeInitialize();
+             }
+
                         
              
              
@@ -70,8 +75,8 @@ and open the template in the editor.
                 case 3: 
                     var d_monstre1 = document.getElementById('monstre1');
                         d_monstre1.src="shrek/shrek_left.png";
-                        d_monstre1.style.height='17%';
-                        d_monstre1.style.width='2%';
+                        d_monstre1.style.height='18%';
+                        d_monstre1.style.width='4%';
                     break;
                 case 4:
                     var d_fond= document.getElementById('test');
@@ -86,7 +91,15 @@ and open the template in the editor.
                     break;
                 case 5:
                     m_x_monstre1=screen.width*2;
-                    document.getElementById("trou1").style.display = "block";
+                    var trou1 = document.getElementById("trou1");
+                        trou1.style.display = "block";
+                        trou1.style.position="absolute";
+                        trou1.style.left="60%";
+                        trou1.style.width="12%";
+                        trou1.style.top="59%";
+                        trou1.style.height="41%";
+                    
+
                     break;
              
             }
@@ -103,6 +116,7 @@ and open the template in the editor.
         
         function  methodeInitialize()
         {
+            
             m_y=max_y;
             if(m_niveau===5)
             {
@@ -237,7 +251,7 @@ and open the template in the editor.
     
     <div id ="level">
         <img id="monstre1" src="shrek/loup.png"> 
-        <!-- <img id="trou1" src="shrek/Lave.png">  -->
+        <img id="trou1" src="shrek/Lave.png" style="display: none;"> 
         
     </div>
     

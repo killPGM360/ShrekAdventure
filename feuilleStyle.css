@@ -81,5 +81,16 @@ and open the template in the editor.
     left:50%;
     bottom:40%;
 }
+#trou1
+{
+    position: absolute;
+    left:60%;
+    width:12%;
+    top:59%;
+    height:41%;
+    display: none;
+}
+
+
 
 
