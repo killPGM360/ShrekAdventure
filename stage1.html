@@ -9,12 +9,14 @@ and open the template in the editor.
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Jeu</title>
         <link href="css/feuilleStyle.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="script/jquery.min.js"></script>
         
         
         
     </head>
     <body id="idbody">
-    <script language="JavaScript" type="text/javascript">
+    
+    <script language="JavaScript" type="text/javascript" >
         
         var max_y=screen.height*0.45;
         var max_x=screen.width;
@@ -64,6 +66,15 @@ and open the template in the editor.
              
              
         }
+        function hitBox( source, target ) {
+    /* Box model detection, return true on collision */
+return !(
+    ( ( source.offsetTop + source.offsetHeight ) < ( target.offsetTop ) ) ||
+    ( source.offsetTop > ( target.offsetTop + target.offsetHeight ) ) ||
+    ( ( source.offsetLeft + source.offsetWidth ) < target.offsetLeft ) ||
+    ( source.offsetLeft > ( target.offsetLeft + target.offsetWidth ) )
+);
+}
         function methodeNiveauSup()
         {
             methodeInitialize();
@@ -113,15 +124,7 @@ and open the template in the editor.
              
             }
         }
-        function hitBox( source, target ) {
-        /* Box model detection, return true on collision */
-	return !(
-		( ( source.offsetTop + source.offsetHeight ) < ( target.offsetTop ) ) ||
-		( source.offsetTop > ( target.offsetTop + target.offsetHeight ) ) ||
-		( ( source.offsetLeft + source.offsetWidth ) < target.offsetLeft ) ||
-		( source.offsetLeft > ( target.offsetLeft + target.offsetWidth ) )
-	);
-}
+        
         
         function  methodeInitialize()
         {
