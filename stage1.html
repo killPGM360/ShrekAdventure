@@ -26,6 +26,7 @@ and open the template in the editor.
         var m_direction=0;
         var gravite;
         var m_niveau=1;
+        var m_hauteurSaut=30;
         var m_vitesseMonstre=2
         setInterval(methodeGravite, 20);
         setInterval(methodeLevel,30);
@@ -152,11 +153,12 @@ and open the template in the editor.
                
                 if(m_lock===1)
                 {
+                    m_hauteurSaut=screen.height*0.035;
                     gravite=-5;
                     m_nbSaut=m_nbSaut+1;
-                    if(m_nbSaut>=30)
+                    if(m_nbSaut>=m_hauteurSaut)
                     {
-                        if(m_y>=max_y)  //le + 2 est a cause de l'imprécision
+                        if(m_y>=max_y)  
                         {
                              m_nbSaut=0;
                              m_lock=0;
