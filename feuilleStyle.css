@@ -36,6 +36,8 @@ and open the template in the editor.
     font-family:tahoma;
     font-size:11px;
     background-image: url("shrek/fond1.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
     
 }
 #plancher

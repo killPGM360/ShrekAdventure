@@ -11,6 +11,7 @@ and open the template in the editor.
         <link href="feuilleStyle.css" rel="stylesheet" type="text/css">
         
         
+        
     </head>
     <body id="idbody">
     <script language="JavaScript" type="text/javascript">
@@ -46,6 +47,8 @@ and open the template in the editor.
              var d_monstre1 = document.getElementById('monstre1');
                         d_monstre1.style.position = "absolute";
                         d_monstre1.style.left = m_x_monstre1+'px';
+
+             var d_trou = document.getElementById('trou1');
                         
              if(hitBox(d_personne, d_monstre1))
              {
@@ -68,7 +71,7 @@ and open the template in the editor.
             switch(m_niveau)
             {
                 case 2:
-                location.replace("index.html");
+                
                     var d_monstre1 = document.getElementById('monstre1');
                         d_monstre1.src="shrek/Zombie.png";
                         d_monstre1.style.height='15%';
@@ -103,10 +106,7 @@ and open the template in the editor.
 
                     break;
                 case 6:
-                    var d_monstre1 = document.getElementById('monstre1');
-                        d_monstre1.src="shrek/Zombie.png";
-                        d_monstre1.style.height='15%';
-                    //window.location.href="index_stage2.html";
+                    location.replace("indexStage2.html");
                     
                     break;
              
