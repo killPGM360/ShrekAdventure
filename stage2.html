@@ -18,7 +18,7 @@ and open the template in the editor.
         if (m_niveau === 5) {
           m_x_monstre1 = screen.width * 2;
         } else {
-          m_x_monstre1 = screen.width * 0.5;
+          m_x_monstre1 = screen.width * 1;
         }
         m_x = 1;
         var d = document.getElementById("personne1");
@@ -34,9 +34,20 @@ and open the template in the editor.
 
         switch (m_niveau) {
           case 1:
+          
+            var d_fond = document.getElementById("test");
+              d_fond.style.backgroundImage = "url('shrek/grotte_background.jpg')";
+            var d_brick= document.getElementById("plancher");
+              d_brick.style.backgroundImage="url('shrek/brickSombre.jpg')";
+
+            
+            m_vitesseMonstre = 13;
+
             var d_monstre1 = document.getElementById("monstre1");
-            d_monstre1.src = "shrek/boule_neige.png";
-            d_monstre1.style.height = "15%";
+              d_monstre1.src = "shrek/chauve-souris.png";
+              d_monstre1.style.height = "10%";
+              d_monstre1.style.bottom="45%";
+            
             break;
           case 2:
             var d_monstre1 = document.getElementById("monstre1");

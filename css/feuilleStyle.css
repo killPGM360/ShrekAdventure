@@ -83,9 +83,10 @@ and open the template in the editor.
     left:50%;
     bottom:40%;
 }
-#trouu1
+#trou1
 {
     position: absolute;
+    background-repeat: repeat;
     left:60%;
     width:12%;
     top:59%;
