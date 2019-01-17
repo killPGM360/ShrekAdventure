@@ -7,9 +7,10 @@ var m_lock = 0;
 var m_nbSaut = 0;
 var m_direction = 0;
 var gravite;
-var m_niveau = 1;
+var m_niveau = 0;
 var m_hauteurSaut = 30;
 var m_vitesseMonstre = 2;
+methodeNiveauSup();
 setInterval(methodeGravite, 20);
 setInterval(methodeLevel, 30);
 function zxcKeyPress(zxc) {
@@ -59,21 +60,7 @@ function zxcSetDiv(zxc) {
     document.onkeydown = null;
   };
 }
-function methodeInitialize() {
-  m_y = max_y;
-  if (m_niveau === 5) {
-    m_x_monstre1 = screen.width * 2;
-  } else {
-    m_x_monstre1 = screen.width * 0.5;
-  }
-  m_x = 1;
-  var d = document.getElementById("personne1");
-  d.style.position = "absolute";
 
-  d.src = "shrek/shrek_mini_happy.png";
-  d.style.left = m_x + "px";
-  d.style.top = m_y + "px";
-}
 function hitBox(source, target) {
   /* Box model detection, return true on collision */
   return !(
@@ -107,5 +94,29 @@ function methodeLevel() {
   }
   if (hitBox(d_personne, d_trou)) {
     methodeInitialize();
+  }
+}
+function methodeGravite() {
+  if (m_y < max_y + 10) {
+    if (m_lock === 1) {
+      m_hauteurSaut = screen.height * 0.035;
+      gravite = -5;
+      m_nbSaut = m_nbSaut + 1;
+      if (m_nbSaut >= m_hauteurSaut) {
+        if (m_y >= max_y) {
+          m_nbSaut = 0;
+          m_lock = 0;
+        } else {
+          gravite = 5;
+        }
+      }
+    } else {
+      gravite = 5;
+    }
+    m_x = m_x + m_direction;
+    m_y = m_y + gravite;
+  } else {
+    m_nbSaut = 0;
+    m_lock = 0;
   }
 }
