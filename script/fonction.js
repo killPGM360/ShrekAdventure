@@ -83,3 +83,29 @@ function hitBox(source, target) {
     source.offsetLeft > target.offsetLeft + target.offsetWidth
   );
 }
+
+function methodeLevel() {
+  max_y = screen.height * 0.45; //fix zoom
+  max_x = screen.width;
+  m_x_monstre1 = m_x_monstre1 - m_vitesseMonstre;
+  if (m_x >= max_x) {
+    methodeNiveauSup();
+  }
+  var d_personne = document.getElementById("personne1");
+  d_personne.style.position = "absolute";
+  d_personne.style.left = m_x + "px";
+  d_personne.style.top = m_y + "px";
+
+  var d_monstre1 = document.getElementById("monstre1");
+  d_monstre1.style.position = "absolute";
+  d_monstre1.style.left = m_x_monstre1 + "px";
+
+  var d_trou = document.getElementById("trou1");
+
+  if (hitBox(d_personne, d_monstre1)) {
+    methodeInitialize();
+  }
+  if (hitBox(d_personne, d_trou)) {
+    methodeInitialize();
+  }
+}
