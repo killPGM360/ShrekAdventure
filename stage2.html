@@ -20,6 +20,7 @@ and open the template in the editor.
         } else {
           m_x_monstre1 = screen.width * 1;
         }
+        m_x_monstre2=-500;
         m_x = 1;
         var d = document.getElementById("personne1");
         d.style.position = "absolute";
@@ -50,9 +51,12 @@ and open the template in the editor.
             
             break;
           case 2:
-            var d_monstre1 = document.getElementById("monstre1");
-            d_monstre1.src = "shrek/Zombie.png";
-            d_monstre1.style.height = "15%";
+            var d_monstre2 = document.getElementById("monstre2");
+            d_monstre2.src = "shrek/chauve-souris.png";
+            d_monstre2.style.bottom = "55%";
+            d_monstre2.style.height = "10%";
+            d_monstre2.style.transform="scaleX(-1)";
+            d_monstre2.style.display="block";
             break;
           case 3:
             var d_monstre1 = document.getElementById("monstre1");
@@ -100,6 +104,7 @@ and open the template in the editor.
 
       <div id="level">
         <img id="monstre1" src="shrek/loup.png" />
+        <img id="monstre2" src="shrek/chauve-souris.png" style="display: none;"/>
         <img id="trou1" src="shrek/Lave.png" style="display: none;" />
       </div>
     </div>

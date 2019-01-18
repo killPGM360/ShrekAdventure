@@ -3,6 +3,7 @@ var max_x = screen.width;
 var m_y = max_y;
 var m_x = 1;
 var m_x_monstre1 = screen.width * 0.5;
+var m_x_monstre2=-500;
 var m_lock = 0;
 var m_nbSaut = 0;
 var m_direction = 0;
@@ -75,6 +76,7 @@ function methodeLevel() {
   max_y = screen.height * 0.45; //fix zoom
   max_x = screen.width;
   m_x_monstre1 = m_x_monstre1 - m_vitesseMonstre;
+  m_x_monstre2=m_x_monstre2+m_vitesseMonstre;
   if (m_x >= max_x) {
     methodeNiveauSup();
   }
@@ -87,9 +89,16 @@ function methodeLevel() {
   d_monstre1.style.position = "absolute";
   d_monstre1.style.left = m_x_monstre1 + "px";
 
+  var d_monstre2 = document.getElementById("monstre2");
+  d_monstre2.style.position = "absolute";
+  d_monstre2.style.left = m_x_monstre2 + "px";
+
   var d_trou = document.getElementById("trou1");
 
   if (hitBox(d_personne, d_monstre1)) {
+    methodeInitialize();
+  }
+  if (hitBox(d_personne, d_monstre2)) {
     methodeInitialize();
   }
   if (hitBox(d_personne, d_trou)) {
