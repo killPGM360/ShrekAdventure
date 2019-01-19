@@ -52,17 +52,31 @@ and open the template in the editor.
             break;
           case 2:
             var d_monstre2 = document.getElementById("monstre2");
-            d_monstre2.src = "shrek/chauve-souris.png";
-            d_monstre2.style.bottom = "55%";
-            d_monstre2.style.height = "10%";
-            d_monstre2.style.transform="scaleX(-1)";
-            d_monstre2.style.display="block";
+              d_monstre2.src = "shrek/chauve-souris.png";
+              d_monstre2.style.bottom = "55%";
+              d_monstre2.style.height = "10%";
+              d_monstre2.style.transform="scaleX(-1)";
+              d_monstre2.style.display="block";
+
+            var d_monstre1 = document.getElementById("monstre1");
+              d_monstre1.src = "shrek/chauve-souris.png";
             break;
           case 3:
+          m_vitesseMonstre = 6;
             var d_monstre1 = document.getElementById("monstre1");
-            d_monstre1.src = "shrek/shrek_left.png";
-            d_monstre1.style.height = "18%";
-            d_monstre1.style.width = "4%";
+              d_monstre1.src = "shrek/rat_king.png";
+              d_monstre1.style.height = "18%";
+              d_monstre1.style.bottom="40%";
+              d_monstre1.style.transform="scaleX(-1)";
+              d_monstre1.style.width = "8%";
+
+            var trou1 = document.getElementById("trou1");
+              trou1.style.display = "block";
+              trou1.style.position = "absolute";
+              trou1.style.left = "60%";
+              trou1.style.width = "12%";
+              trou1.style.top = "59%";
+              trou1.style.height = "43%";
             break;
           case 4:
             var d_fond = document.getElementById("test");
